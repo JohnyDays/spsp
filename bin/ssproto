@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+require 'ssproto'
+
+cmd = ARGV.shift 
+case cmd
+	when "create" 
+  	SSProto.create
+  when "watch"
+  	SSProto.watch
+  else
+  	SSProto.watch
+ end

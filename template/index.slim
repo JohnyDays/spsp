@@ -1,0 +1,8 @@
+html
+	head
+		-@css_files.each do |f|
+			link href="css/#{f}" type="text/css" rel="stylesheet"
+		-@javascript_files.each do |f|
+			script href="js/#{f}" type="text/javascript"
+	body
+		p.text Welcome, all your javascript and css files are being included.
