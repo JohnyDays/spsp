@@ -3,7 +3,7 @@ template_files = []
 Find.find('template/') { |e| template_files << e}
 Gem::Specification.new do |s|
   s.name        = 'ssproto'
-  s.version     = '1.0.4'
+  s.version     = '1.0.5'
   s.add_runtime_dependency 'sass'
   s.add_runtime_dependency 'slim'
   s.add_runtime_dependency 'tilt'
