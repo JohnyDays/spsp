@@ -6,7 +6,7 @@ class SSProto::Slim
 	end
 	def self.renderSlim(filename,path)
 		begin
-			eval File.read("#{Dir.pwd}/config.rb")
+			eval File.read("#{Dir.pwd}/each.rb")
 			tilt_result = Tilt.new(filename).render self
 			File.write(path,tilt_result)
 		rescue Exception => e

@@ -7,12 +7,12 @@ class SSProto
 	end
 	def self.watch
 		begin
-		sass =Process.spawn("sass --watch sass/:css/ --style compressed")
-		Process.detach sass
+		compass =Process.spawn("compass watch")
+		Process.detach compass
 		coffee = Process.spawn("coffee -o js -cw coffee")
 		Process.detach coffee
 		SSProto::Slim.setSlimOptions :pretty => true,:sort_attrs => false
-		directories_to_watch = ["index.slim","config.rb","css/","js/"]
+		directories_to_watch = ["index.slim","each.rb","css/","js/"]
 		puts "Watching:\n         #{directories_to_watch.join("\n         ")}\n"
 		FileWatcher.new(directories_to_watch).watch do |f|
 			puts "Rendering index.html"
@@ -20,7 +20,7 @@ class SSProto
 			puts "	finished"
 		end
 		rescue SystemExit, Interrupt
-			Process.kill "SIGINT",sass
+			Process.kill "SIGINT",compass
 			Process.kill "SIGINT",coffee
 		end
 	end
